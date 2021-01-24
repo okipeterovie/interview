@@ -29,7 +29,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/payment-master")
+@RequestMapping("/api/wallet-master")
 public class WalletMasterController {
 
     @Autowired
@@ -50,10 +50,11 @@ public class WalletMasterController {
                 walletMasterDto.setId(walletMaster.getId());
                 walletMasterDto.setTimeCreated(walletMaster.getTimeCreated());
                 walletMasterDto.setLastUpdated(walletMaster.getLastUpdated());
-                walletMasterDto.setLastUpdated(walletMaster.getLastUpdated());
+                walletMasterDto.setTotalAmountAvailable(walletMaster.getTotalAmountAvailable());
                 walletMasterDto.setUserProfileId(walletMaster.getUserProfile().getId());
                 walletMasterDto.setUserProfileFirstName(walletMaster.getUserProfile().getFirstName());
-                walletMasterDto.setUserProfileLastName(walletMaster.getUserProfile().getLastName());
+                walletMasterDto.setUserProfileLastName(walletMaster.getUserProfile().getLastName());                walletMasterDto.setUserProfileLastName(walletMaster.getUserProfile().getLastName());
+                walletMasterDto.setUserProfileEmail(walletMaster.getUserProfile().getEmail());
                 walletMasterDto.setOutletsId(walletMaster.getOutlets().getId());
                 walletMasterDto.setOutletsName(walletMaster.getOutlets().getOutletName());
 

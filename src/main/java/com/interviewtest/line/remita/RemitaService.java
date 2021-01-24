@@ -89,26 +89,28 @@ public class RemitaService {
             remitaRequest.setServiceTypeId(serviceTypeId);
             remitaRequest.setAmount(actualTotal);
             remitaRequest.setOrderId(remittaModel.getOrderId());
-            remitaRequest.setPayerName(remittaModel.getPayerName().replaceAll("[^a-zA-Z]+", ""));
+//            remitaRequest.setPayerName(remittaModel.getPayerName().replaceAll("[^a-zA-Z]+", ""));
+            remitaRequest.setPayerEmail(remittaModel.getPayerName());
             remitaRequest.setPayerEmail(remittaModel.getPayerEmail());
             remitaRequest.setPayerPhone(remittaModel.getPayerPhone());
             remitaRequest.setDescription(remittaModel.getFeeDescription());
             remitaRequest.getLineItems().add(new RemitaLineItem("45454", beneficiaryName, beneficiaryAccount, beneficiaryBankCode, 500.0, 1));
-            remitaRequest.getLineItems().add(new RemitaLineItem("34444160119152814", beneficiaryName3Line, beneficiaryAccount3Line, bankCode3Line, LineShare, 0));
-            remitaRequest.getLineItems().add(new RemitaLineItem("3555160119152814", beneficiaryNameRemita, beneficiaryAccountRemita, bankCodeRemita, remitaShare, 0));
+//            remitaRequest.getLineItems().add(new RemitaLineItem("34444160119152814", beneficiaryName3Line, beneficiaryAccount3Line, bankCode3Line, LineShare, 0));
+//            remitaRequest.getLineItems().add(new RemitaLineItem("3555160119152814", beneficiaryNameRemita, beneficiaryAccountRemita, bankCodeRemita, remitaShare, 0));
         } 
         else {
             remitaRequest = new RemitaRequest();
             remitaRequest.setServiceTypeId(serviceTypeId);
             remitaRequest.setAmount(actualTotal);
             remitaRequest.setOrderId(remittaModel.getOrderId());
-            remitaRequest.setPayerName(remittaModel.getPayerName().replaceAll("[^a-zA-Z]+", ""));
+//            remitaRequest.setPayerName(remittaModel.getPayerName().replaceAll("[^a-zA-Z]+", ""));
+            remitaRequest.setPayerName(remittaModel.getPayerName());
             remitaRequest.setPayerEmail(remittaModel.getPayerEmail());
             remitaRequest.setPayerPhone(remittaModel.getPayerPhone());
             remitaRequest.setDescription(remittaModel.getFeeDescription());
             remitaRequest.getLineItems().add(new RemitaLineItem("45454", beneficiaryName, beneficiaryAccount, beneficiaryBankCode, amountPayable, 1));
-            remitaRequest.getLineItems().add(new RemitaLineItem("34444160119152814", beneficiaryName3Line, beneficiaryAccount3Line, bankCode3Line, LineShare, 0));
-            remitaRequest.getLineItems().add(new RemitaLineItem("3555160119152814", beneficiaryNameRemita, beneficiaryAccountRemita, bankCodeRemita, remitaShare, 0));
+//            remitaRequest.getLineItems().add(new RemitaLineItem("34444160119152814", beneficiaryName3Line, beneficiaryAccount3Line, bankCode3Line, LineShare, 0));
+//            remitaRequest.getLineItems().add(new RemitaLineItem("3555160119152814", beneficiaryNameRemita, beneficiaryAccountRemita, bankCodeRemita, remitaShare, 0));
         }
         
         Gson gson = new Gson();

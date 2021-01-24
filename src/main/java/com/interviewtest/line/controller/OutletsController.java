@@ -43,10 +43,14 @@ public class OutletsController {
     @Autowired
     private UserManagement userManagement;
 
+    @RequestMapping("/greeting")
+    public @ResponseBody String greeting() {
+        return outletsService.greet();
+    }
     
     @GetMapping(path = "/find/outlets/{outletId}")
     public ResponseEntity<Object> findOutlet(@PathVariable Long outletId){
-        Outlets outlet = outletsService.getOutletsRepository().findById(outletId).orElse(null);
+        Outlets outlet = outletsRepository.findById(outletId).orElse(null);
         if (outlet==null){
             return ResponseEntity.ok(new JsonResponse("Outlet Record Not Found!", HttpStatus.NOT_FOUND));
         }
@@ -65,7 +69,7 @@ public class OutletsController {
 
     @GetMapping(path = "/find/all")
     public ResponseEntity<Object> findAllOutlets(){
-        List<Outlets> outlets = outletsService.getOutletsRepository().findAllByDeletedOrderById(false);
+        List<Outlets> outlets = outletsRepository.findAllByDeletedOrderById(false);
         if (outlets==null){
             return ResponseEntity.ok(new JsonResponse("Outlet Record Not Found!", HttpStatus.NOT_FOUND));
         }
@@ -83,10 +87,7 @@ public class OutletsController {
         }).forEachOrdered(outletsDto -> {
             outletsDtos.add(outletsDto);
         });
-//        return ResponseEntity.ok(new JsonResponse("See Data Object for Details!", outletsDtos));
-        return ResponseEntity.ok()
-//                .location((new URI("/rest/widgets")))
-                .body(outletsDtos);
+        return ResponseEntity.ok(new JsonResponse("See Data Object for Details!", outletsDtos));
     }
     
     
@@ -95,7 +96,7 @@ public class OutletsController {
     public ResponseEntity<Object> saveOutlet(@RequestBody OutletsDto outletsDto) {
 
         Outlets outlet = outletsService.persistOutlets(outletsDto);
-//        outletsDto.setUsersAccountId(outlet.getId());
+        outletsDto.setUsersAccountId(outlet.getId());
         return ResponseEntity.ok(new JsonResponse("See Data Object for Details!", outletsDto));
     }
 

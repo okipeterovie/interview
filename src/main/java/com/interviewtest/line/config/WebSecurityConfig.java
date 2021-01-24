@@ -92,9 +92,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/configuration/security",
 //                "/swagger-ui.html",
                 "/webjars/**",
-                        "/api/utility/**",
-                        "/api/outlets/**",
-                        "/api/payment/remita/**"
+                "/api/utility/**",
+                "/api/outlets/**",
+                "/api/wallet-master/**"
 
         );
     }

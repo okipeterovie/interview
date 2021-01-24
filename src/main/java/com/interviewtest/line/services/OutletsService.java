@@ -46,6 +46,10 @@ public class OutletsService {
     @Autowired
     private WalletMasterRepository walletMasterRepository;
 
+    public String greet() {
+        return "Hello, World";
+    }
+
     public Outlets findOutletByCurrentUser(){
         UsersAccount userAccount = userManagement.getRolePrivilegeManager().getUser();
         if (userAccount!=null){
